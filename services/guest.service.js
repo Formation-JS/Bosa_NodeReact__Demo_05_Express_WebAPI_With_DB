@@ -1,3 +1,4 @@
+import { GuestDTO, GuestDetailDTO } from '../dto/guest.dto.js';
 import db from './../models/index.js';
 
 class GuestService {
@@ -9,21 +10,21 @@ class GuestService {
         console.log('personData', personData);
         console.log('personRow', personDB);
 
-        return personDB;
+        return new GuestDetailDTO(personDB);
     }
 
     async getAll() {
 
         const people = await db.Guest.findAll()
 
-        return people;
+        return people.map(person => new GuestDTO(person));
     }
 
     async getById(id) {
 
         const personDB = await db.Guest.findByPk(id);
 
-        return personDB;
+        return new GuestDetailDTO(personDB);
     }
 
     async delete(id) {

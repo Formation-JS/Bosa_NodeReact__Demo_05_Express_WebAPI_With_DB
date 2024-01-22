@@ -1,5 +1,6 @@
 // Importation des packages (ESM)
 import express from 'express';
+import routerMain from './routers/index.js';
 
 // Récuperation des variable d'env
 const { NODE_ENV, PORT } = process.env;
@@ -12,7 +13,7 @@ const app = express();
 app.use(express.json());
 
 // Ajout des endpoints (Router)
-// TODO ...
+app.use(routerMain);
 
 // Démarrage de l'API
 app.listen(PORT, () => {

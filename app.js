@@ -1,5 +1,6 @@
 // Importation des packages (ESM)
 import express from 'express';
+import 'express-async-errors';
 import routerMain from './routers/index.js';
 import db from './models/index.js';
 

@@ -1,17 +1,30 @@
 # Demo Web API en express avec une base de donnée
-Exemple d'API Restfull avec une base de donnée SQLite (in memory)
+Exemple d'API Restfull avec une base de donnée SQLite
 
 ## Package à installer
-```cmd
-# Commande pour la démo (SQLite)
-npm i express sequelize sqlite3
+### Commande :
+```
+# Initialisation du projet démo
+npm init
+npm i express express-async-errors yup
 
-# Commande Alternative pour PostgreSQL
-npm i express sequelize pg pg-hstore
+# Pour utiliser SQLite
+npm i sequelize sqlite3
 
-# Commande pour le mode "dev"
+# Pour utiliser PostgreSQL
+npm i sequelize pg pg-hstore
+
+# Dépendence pour le mode "dev"
 npm i nodemon --save-dev
 ```
+### Objectif des packages : 
+- express : Framework pour créer le serveur API
+- express-async-errors : Gestion des erreurs dans du code "async await"
+- yup : Bibliotheque de validation de donnée
+- sequelize : ORM pour interagir avec une base de donnée
+- sqlite3 : Drivers pour utiliser SQLite
+- pg & pg-hstore : Drivers pour utiliser PostgreSQL
+- nodemon : Outil qui redémarre l'app' lors de la sauvegarde des fichiers
 
 ## Endpoint de la demo
 Obtenir tout la listes des invités

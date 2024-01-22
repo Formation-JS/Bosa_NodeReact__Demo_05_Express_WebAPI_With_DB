@@ -1,10 +1,11 @@
 import express from 'express';
 import GuestService from '../services/guest.service.js';
+import db from '../models/index.js';
 
 const { Request, Response } = express;
 
 // Création d'une instance du "GuestService"
-const guestService = new GuestService();
+const guestService = new GuestService(db);
 
 // Controller pour les endpoints "Guest"
 const guestController = {

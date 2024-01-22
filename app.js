@@ -1,9 +1,23 @@
 // Importation des packages (ESM)
 import express from 'express';
 import routerMain from './routers/index.js';
+import db from './models/index.js';
 
 // Récuperation des variable d'env
 const { NODE_ENV, PORT } = process.env;
+
+// Initialisation de la base de donnée
+// - Test de connection
+db.sequelize.authenticate()
+    .then(() => console.log('Connection DB : OK'))
+    .catch((error) => console.log('Connection DB : Error', error));
+
+// - Synchronisation de la DB et des models (Pas necessaire en DB first)
+if(NODE_ENV === 'dev') {
+    // db.sequelize.sync({
+    //     alter: { drop: false }
+    // });
+}
 
 // Initialisation de la Web API
 const app = express();

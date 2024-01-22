@@ -42,7 +42,7 @@ const guestController = {
      * @param {Response} res 
      */
     add: async (req, res) => {
-        const personIn = req.body;
+        const personIn = req.bodyValidated;
         const personDb = await guestService.add(personIn);
 
         res.status(201);
@@ -74,7 +74,7 @@ const guestController = {
      */
     update: async (req, res) => {
         const { id } = req.params;
-        const data = req.body;
+        const data = req.bodyValidated;
 
         const dataUpdated = await guestService.update(id, data);
 
